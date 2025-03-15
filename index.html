@@ -1,0 +1,82 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPRDZY</title>
+    <link rel="icon" href="https://team-spr.github.io/files/sprdzy.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <style>
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animated-bg {
+            background: linear-gradient(270deg, #1e3a8a, #3b82f6, #9333ea, #f43f5e);
+            background-size: 800% 800%;
+            animation: gradientBackground 15s ease infinite;
+        }
+    </style>
+</head>
+<body class="animated-bg text-white min-h-screen flex flex-col">
+    <nav class="bg-gray-900 bg-opacity-75 p-4 fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://team-spr.github.io/files/sprdzy.png" alt="SPRDZY bot icon" class="h-10 w-10 mr-3">
+                <span class="text-xl font-bold">SPRDZY</span>
+            </div>
+            <div class="space-x-4">
+                <a href="https://dashboard.sprdzy.com" class="hover:text-gray-300">Dashboard</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1340049537590624327&permissions=8&integration_type=0&scope=bot" class="hover:text-gray-300">Invite</a>
+                <a href="https://discord.gg/3w8xRR4Fzr" class="hover:text-gray-300">Support Server</a>
+            </div>
+        </div>
+    </nav>
+    <header class="flex-grow flex items-center justify-center text-center p-6">
+        <div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">Welcome to SPRDZY</h1>
+            <p class="text-xl md:text-2xl mb-8">The ultimate Discord bot with AI, moderation, games, music, sounds, Minecraft features, and so much more!</p>
+            <a href="https://discord.com/oauth2/authorize?client_id=1340049537590624327&permissions=8&integration_type=0&scope=bot" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Invite SPRDZY</a>
+        </div>
+    </header>
+    <section class="container mx-auto p-6">
+        <h2 class="text-4xl font-bold text-center mb-12">Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="bg-gray-800 bg-opacity-75 p-6 rounded-lg text-center">
+                <i class="fas fa-robot text-4xl mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">AI</h3>
+                <p>Advanced AI capabilities to enhance your server experience.</p>
+            </div>
+            <div class="bg-gray-800 bg-opacity-75 p-6 rounded-lg text-center">
+                <i class="fas fa-shield-alt text-4xl mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">Moderation</h3>
+                <p>Keep your server safe with powerful moderation tools.</p>
+            </div>
+            <div class="bg-gray-800 bg-opacity-75 p-6 rounded-lg text-center">
+                <i class="fas fa-gamepad text-4xl mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">Games</h3>
+                <p>Engage your community with fun and interactive games.</p>
+            </div>
+            <div class="bg-gray-800 bg-opacity-75 p-6 rounded-lg text-center">
+                <i class="fas fa-music text-4xl mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">Music</h3>
+                <p>Play your favorite tunes directly in your Discord server.</p>
+            </div>
+            <div class="bg-gray-800 bg-opacity-75 p-6 rounded-lg text-center">
+                <i class="fas fa-volume-up text-4xl mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">Sounds</h3>
+                <p>Access a library of sounds to liven up your voice chats.</p>
+            </div>
+            <div class="bg-gray-800 bg-opacity-75 p-6 rounded-lg text-center">
+                <i class="fas fa-cubes text-4xl mb-4"></i>
+                <h3 class="text-2xl font-bold mb-2">Minecraft</h3>
+                <p>Integrate Minecraft features seamlessly into your server.</p>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-gray-900 bg-opacity-75 p-6 text-center">
+        <p>&copy; 2025 Team SPR. All rights reserved.</p>
+    </footer>
+</body>
+</html>
