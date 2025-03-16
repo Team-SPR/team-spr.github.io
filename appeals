@@ -1,0 +1,68 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Primary Meta Tags -->
+<title>SPRDZY</title>
+<meta name="title" content="SPRDZY" />
+<meta name="description" content="The only Discord moderation bot you'll need - it has games, music, sounds, AI, moderation tools and so much more." />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://sprdzy.com/" />
+<meta property="og:title" content="SPRDZY" />
+<meta property="og:description" content="The only Discord moderation bot you'll need - it has games, music, sounds, AI, moderation tools and so much more." />
+<meta property="og:image" content="https://sprdzy.com/cdn/og.png" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://sprdzy.com/" />
+<meta property="twitter:title" content="SPRDZY" />
+<meta property="twitter:description" content="The only Discord moderation bot you'll need - it has games, music, sounds, AI, moderation tools and so much more." />
+<meta property="twitter:image" content="https://sprdzy.com/cdn/og.png" />
+
+<!-- Meta Tags Generated with https://metatags.io -->
+    <title>SPRDZY</title>
+    <link rel="icon" href="https://team-spr.github.io/files/sprdzy.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <style>
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animated-bg {
+            background: linear-gradient(270deg, #1e3a8a, #3b82f6, #9333ea, #f43f5e);
+            background-size: 800% 800%;
+            animation: gradientBackground 15s ease infinite;
+        }
+    </style>
+</head>
+<body class="animated-bg text-white min-h-screen flex flex-col">
+    <nav class="bg-gray-900 bg-opacity-75 p-4 fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="https://team-spr.github.io/files/sprdzy.png" alt="SPRDZY bot icon" class="h-10 w-10 mr-3">
+                <span class="text-xl font-bold">SPRDZY</span>
+            </div>
+            <div class="space-x-4">
+                <a href="https://dashboard.sprdzy.com" class="hover:text-gray-300">Dashboard</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1340049537590624327&permissions=8&integration_type=0&scope=bot" class="hover:text-gray-300">Invite</a>
+                <a href="https://discord.gg/3w8xRR4Fzr" class="hover:text-gray-300">Support Server</a>
+                <a href="https://discord.gg/3w8xRR4Fzr" class="hover:text-gray-300">Meet Our Team</a>
+            </div>
+        </div>
+    </nav>
+    <header class="flex-grow flex items-center justify-center text-center p-6 pt-28">
+        <div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">SPRDZY Mod Action Appeals</h1>
+            <p class="text-xl md:text-2xl mb-8">You may wish to appeal using the form below.</p>
+        </div>
+    </header>
+// here please beau love you mwah
+    <footer class="bg-gray-900 bg-opacity-75 p-6 text-center">
+        <p>&copy; 2025 Team SPR. All rights reserved.</p>
+    </footer>
+</body>
+</html>
