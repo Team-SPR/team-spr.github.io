@@ -127,7 +127,13 @@
 
                 alert("Your appeal has been submitted. You will be redirected shortly.");
                 setTimeout(function() {
-                    window.location.href = "https://sprdzy.com/"
-                    </script>
-                    </body>
-                    </html>
+                    window.location.href = "https://sprdzy.com/";
+                }, 3000); 
+            } catch (error) {
+                alert("There was an error submitting your appeal. Please try again later.");
+                console.error("Error submitting appeal:", error);
+            }
+        });
+    </script>
+</body>
+</html>
