@@ -1,31 +1,12 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Primary Meta Tags -->
-<title>SPRDZY</title>
-<meta name="title" content="SPRDZY" />
-<meta name="description" content="The only Discord moderation bot you'll need - it has games, music, sounds, AI, moderation tools and so much more." />
-
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://sprdzy.com/" />
-<meta property="og:title" content="SPRDZY" />
-<meta property="og:description" content="The only Discord moderation bot you'll need - it has games, music, sounds, AI, moderation tools and so much more." />
-<meta property="og:image" content="https://sprdzy.com/cdn/og.png" />
-
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content="https://sprdzy.com/" />
-<meta property="twitter:title" content="SPRDZY" />
-<meta property="twitter:description" content="The only Discord moderation bot you'll need - it has games, music, sounds, AI, moderation tools and so much more." />
-<meta property="twitter:image" content="https://sprdzy.com/cdn/og.png" />
-
-<!-- Meta Tags Generated with https://metatags.io -->
-    <title>SPRDZY</title>
+    <title>SPRDZY - Appeal Form</title>
     <link rel="icon" href="https://team-spr.github.io/files/sprdzy.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         @keyframes gradientBackground {
             0% { background-position: 0% 50%; }
@@ -54,15 +35,86 @@
             </div>
         </div>
     </nav>
+
     <header class="flex-grow flex items-center justify-center text-center p-6 pt-28">
         <div>
             <h1 class="text-5xl md:text-7xl font-bold mb-4">SPRDZY Mod Action Appeals</h1>
             <p class="text-xl md:text-2xl mb-8">You may wish to appeal using the form below.</p>
         </div>
     </header>
-// here please beau love you mwah
+
+    <main class="flex-grow flex items-center justify-center p-6">
+        <form id="appealForm" class="bg-gray-900 bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-lg">
+            <h2 class="text-3xl font-bold mb-6 text-center">Appeal Form</h2>
+
+            <label class="block mb-2 font-bold">Discord Username</label>
+            <input type="text" id="username" class="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-700 text-white" required>
+
+            <label class="block mb-2 font-bold">Email</label>
+            <input type="email" id="email" class="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-700 text-white" required>
+
+            <label class="block mb-2 font-bold">Why do you believe the action was taken?</label>
+            <textarea id="reason" class="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-700 text-white h-24" required></textarea>
+
+            <label class="block mb-2 font-bold">Will you break our rules again?</label>
+            <select id="willBreakRules" class="w-full p-2 mb-6 rounded bg-gray-800 border border-gray-700 text-white" required>
+                <option value="">Select an option</option>
+                <option value="No">No, I won’t break the rules again.</option>
+                <option value="Yes">Yes, I will break the rules again.</option>
+            </select>
+
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded">Submit Appeal</button>
+        </form>
+    </main>
+
     <footer class="bg-gray-900 bg-opacity-75 p-6 text-center">
         <p>&copy; 2025 Team SPR. All rights reserved.</p>
     </footer>
+
+    <script>
+        document.getElementById("appealForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const reason = document.getElementById("reason").value.trim();
+            const willBreakRules = document.getElementById("willBreakRules").value.trim();
+
+            if (!username || !email || !reason || !willBreakRules) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            const webhookUrl = "https://discord.com/api/webhooks/1350829529341362279/W9GxnvSaFcBCBpfyAwkDHO_nLBuR6JyUlalJD0px3Zn1Qa5VlecKC_De_zSFtBM3Vnbf";
+
+            const payload = {
+                embeds: [{
+                    title: "New Moderation Appeal",
+                    color: 3447003,
+                    fields: [
+                        { name: "Discord Username", value: username, inline: true },
+                        { name: "Email", value: email, inline: true },
+                        { name: "Reason for Action", value: reason, inline: false },
+                        { name: "Will Break Rules Again?", value: willBreakRules, inline: true }
+                    ],
+                    footer: { text: "SPRDZY Appeals System" },
+                    timestamp: new Date().toISOString()
+                }]
+            };
+
+            try {
+                await fetch(webhookUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                alert("Your appeal has been submitted.");
+                document.getElementById("appealForm").reset();
+            } catch (error) {
+                alert("Failed to submit appeal. Please try again.");
+            }
+        });
+    </script>
 </body>
 </html>
