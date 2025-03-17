@@ -62,7 +62,7 @@
     </header>
 
     <main class="flex-grow flex items-center justify-center p-6">
-        <form id="appealForm" class="bg-gray-900 bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-lg">
+        <form id="abuseForm" class="bg-gray-900 bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-lg">
             <h2 class="text-3xl font-bold mb-6 text-center">Report Abuse Form</h2>
 
             <label class="block mb-2 font-bold">Their Discord Username</label>
@@ -74,7 +74,7 @@
             <label class="block mb-2 font-bold">Your Email</label>
             <input type="email" id="email" class="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-700 text-white" required>
 
-            <label class="block mb-2 font-bold">Direct link to an image providing proof</label>
+            <label class="block mb-2 font-bold">Direct link to an image providing proof - for multiple images, seperate with new lines</label>
             <textarea id="image" class="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-700 text-white h-24" required></textarea>
 
             <label class="block mb-2 font-bold">Is this report made in good faith, and is not duplicate?</label>
@@ -94,15 +94,16 @@
     </footer>
 
     <script>
-        document.getElementById("appealForm").addEventListener("submit", async function(event) {
+        document.getElementById("abuseForm").addEventListener("submit", async function(event) {
             event.preventDefault();
 
-            const username = document.getElementById("username").value.trim();
+            const username1 = document.getElementById("username1").value.trim();
+        const username2 = document.getElementById("username2").value.trim();
             const email = document.getElementById("email").value.trim();
-            const reason = document.getElementById("reason").value.trim();
-            const willBreakRules = document.getElementById("willBreakRules").value.trim();
+            const image = document.getElementById("image").value.trim();
+            const ingoodfaith = document.getElementById("ingoodfaith").value.trim();
 
-            if (!username || !email || !reason || !willBreakRules) {
+            if (!username1 || !username2 || !email || !image || !ingoodfaith) {
                 alert("Please fill in all fields.");
                 return;
             }
