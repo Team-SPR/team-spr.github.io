@@ -72,14 +72,41 @@
             formData.append("ingoodfaith", document.getElementById("ingoodfaith").value.trim());
 
             try {
-                const response = await fetch("/upload-image", {
+                const uploadResponse = await fetch("/upload-image", {
                     method: "POST",
                     body: formData,
                 });
 
-                if (!response.ok) {
+                if (!uploadResponse.ok) {
                     throw new Error("Failed to upload image.");
                 }
+
+                const uploadResult = await uploadResponse.json();
+                const imageUrl = uploadResult.imageUrl; // Assuming the response contains { "imageUrl": "/images/filename.png" }
+
+                const webhookUrl = "https://discord.com/api/webhooks/1351285310415437884/Aq77Efe6ZwnD0mKaNyJhf9OX7ZukT3cbOpI-gYB6bl6xExR_klitnIex5D_nJxn65u8Y";
+
+                const payload = {
+                    embeds: [{
+                        title: "New Abuse Report",
+                        color: 3447003,
+                        fields: [
+                            { name: "Offender's Discord Username", value: document.getElementById("username1").value.trim(), inline: false },
+                            { name: "Reporter's Discord Username", value: document.getElementById("username2").value.trim(), inline: true },
+                            { name: "Reporter's Email", value: document.getElementById("email").value.trim(), inline: true },
+                            { name: "Image Proof", value: `[View Image](${imageUrl})`, inline: false },
+                            { name: "Report made in good faith and by their will?", value: document.getElementById("ingoodfaith").value.trim(), inline: true }
+                        ],
+                        footer: { text: "SPRDZY Report Abuse System" },
+                        timestamp: new Date().toISOString()
+                    }]
+                };
+
+                await fetch(webhookUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
 
                 alert("Your report has been submitted successfully.");
                 setTimeout(() => {
