@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPRDZY</title>
+<meta name="title" content="SPRDZY" />
+<meta name="description" content="The only Discord moderation bot you'll need - it has games, music, sounds, AI, moderation tools and so much more." />
+
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://sprdzy.com/" />
+<meta property="og:title" content="SPRDZY" />
+<meta property="og:description" content="The only Discord moderation bot you'll need - it has games, music, sounds, AI, moderation tools and so much more." />
+<meta property="og:image" content="https://sprdzy.com/cdn/og.png" />
+
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content="https://sprdzy.com/" />
+<meta property="twitter:title" content="SPRDZY" />
+<meta property="twitter:description" content="The only Discord moderation bot you'll need - it has games, music, sounds, AI, moderation tools and so much more." />
+<meta property="twitter:image" content="https://sprdzy.com/cdn/og.png" />
+
+<title>SPRDZY - Report Abuse</title>
+    <link rel="icon" href="https://team-spr.github.io/files/sprdzy.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animated-bg {
+            background: linear-gradient(270deg, #1e3a8a, #3b82f6, #9333ea, #f43f5e);
+            background-size: 800% 800%;
+            animation: gradientBackground 15s ease infinite;
+        }
+    </style>
+</head>
+<body class="animated-bg text-white min-h-screen flex flex-col">
+    <nav class="bg-gray-900 bg-opacity-75 p-4 fixed w-full z-10">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="https://sprdzy.com">
+                <img src="https://team-spr.github.io/files/sprdzy.png" alt="SPRDZY bot icon" class="h-10 w-10 mr-3">
+                </a>
+                <span class="text-xl font-bold">SPRDZY</span>
+            </div>
+            <div class="space-x-4">
+                <a href="https://dashboard.sprdzy.com" class="hover:text-gray-300">Dashboard</a>
+                <a href="https://discord.com/oauth2/authorize?client_id=1340049537590624327&permissions=8&integration_type=0&scope=bot" class="hover:text-gray-300">Invite</a>
+                <a href="https://discord.gg/3w8xRR4Fzr" class="hover:text-gray-300">Support Server</a>
+                <a href="https://discord.gg/3w8xRR4Fzr" class="hover:text-gray-300">Meet Our Team</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="flex-grow flex items-center justify-center text-center p-6 pt-28">
+        <div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">Report Abuse</h1>
+            <p class="text-xl md:text-2xl mb-8">Found people abusing SPRDZY's commands? Let us know here.</p>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-6">
+        <form id="appealForm" class="bg-gray-900 bg-opacity-80 p-8 rounded-lg shadow-lg w-full max-w-lg">
+            <h2 class="text-3xl font-bold mb-6 text-center">Report Abuse Form</h2>
+
+            <label class="block mb-2 font-bold">Their Discord Username</label>
+            <input type="text" id="username1" class="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-700 text-white" required>
+
+            <label class="block mb-2 font-bold">Your Discord Username</label>
+            <input type="text" id="username2" class="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-700 text-white" required>
+
+            <label class="block mb-2 font-bold">Your Email</label>
+            <input type="email" id="email" class="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-700 text-white" required>
+
+            <label class="block mb-2 font-bold">Direct link to an image providing proof</label>
+            <textarea id="image" class="w-full p-2 mb-4 rounded bg-gray-800 border border-gray-700 text-white h-24" required></textarea>
+
+            <label class="block mb-2 font-bold">Is this report made in good faith, and is not duplicate?</label>
+            <select id="ingoodfaith" class="w-full p-2 mb-6 rounded bg-gray-800 border border-gray-700 text-white" required>
+                <option value="">Select an option</option>
+                <option value="No">No, I have submitted more than one report on this case and/or I have been told to make this report.</option>
+                <option value="Yes">Yes, this is the only report I have submitted on this matter and I am making this report by my own will.</option>
+            </select>
+            <br>
+          <h2 class="text-3xl font-bold mb-6 text-center">Make reports at your own discretion and will. Do not submit reports for someone else.</h2>
+            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded">Submit Appeal</button>
+        </form>
+    </main>
+
+    <footer class="bg-gray-900 bg-opacity-75 p-6 text-center">
+        <p>&copy; 2025 Team SPR. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("appealForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+
+            const username = document.getElementById("username").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const reason = document.getElementById("reason").value.trim();
+            const willBreakRules = document.getElementById("willBreakRules").value.trim();
+
+            if (!username || !email || !reason || !willBreakRules) {
+                alert("Please fill in all fields.");
+                return;
+            }
+
+            const webhookUrl = "https://discord.com/api/webhooks/1350829529341362279/W9GxnvSaFcBCBpfyAwkDHO_nLBuR6JyUlalJD0px3Zn1Qa5VlecKC_De_zSFtBM3Vnbf";
+
+            const payload = {
+                embeds: [{
+                    title: "New Abuse Report",
+                    color: 3447003,
+                    fields: [
+                        { name: "Offender's Discord Username", value: username1, inline: false },
+                        { name: "Reporter's Discord Username", value: username2, inline: true },
+                        { name: "Reporter's Email", value: email, inline: true },
+                        { name: "Reason for Action", value: reason, inline: false },
+                        { name: "Report made in good faith and by their will?", value: ingoodfaith, inline: true }
+                    ],
+                    footer: { text: "SPRDZY Report Abuse System" },
+                    timestamp: new Date().toISOString()
+                }]
+              content: "<@1341052410885439499>"
+            };
+
+            try {
+                await fetch(webhookUrl, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+
+                alert("Your report has been submitted. You will be redirected shortly.");
+                setTimeout(function() {
+                    window.location.href = "https://sprdzy.com/";
+                }, 3000); 
+            } catch (error) {
+                alert("There was an error submitting your appeal. Please try again later.");
+                console.error("Error submitting appeal:", error);
+            }
+        });
+    </script>
+</body>
+</html>
