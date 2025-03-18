@@ -63,28 +63,27 @@
     <script>
         document.getElementById("abuseForm").addEventListener("submit", async function(event) {
             event.preventDefault();
-            
+
+            const file = document.getElementById("image").files[0];
             const formData = new FormData();
-            formData.append("username1", document.getElementById("username1").value.trim());
-            formData.append("username2", document.getElementById("username2").value.trim());
-            formData.append("email", document.getElementById("email").value.trim());
-            formData.append("image", document.getElementById("image").files[0]);
-            formData.append("ingoodfaith", document.getElementById("ingoodfaith").value.trim());
+            formData.append("file", file);
+            formData.append("upload_preset", "BeauOne"); // Replace with your Upload Preset
+            formData.append("cloud_name", "dsyjeylzd"); // Replace with your Cloud Name
 
             try {
-                const uploadResponse = await fetch("/cdn", {
+                const cloudinaryResponse = await fetch("https://api.cloudinary.com/v1_1/dsyjeylzd/image/upload", { // Replace with your Cloud Name
                     method: "POST",
                     body: formData,
                 });
 
-                if (!uploadResponse.ok) {
-                    throw new Error("Failed to upload image.");
+                if (!cloudinaryResponse.ok) {
+                    throw new Error("Failed to upload image to Cloudinary.");
                 }
 
-                const uploadResult = await uploadResponse.json();
-                const imageUrl = uploadResult.imageUrl; // Assuming the response contains { "imageUrl": "/images/filename.png" }
+                const cloudinaryResult = await cloudinaryResponse.json();
+                const imageUrl = cloudinaryResult.secure_url;
 
-                const webhookUrl = "https://discord.com/api/webhooks/1351285310415437884/Aq77Efe6ZwnD0mKaNyJhf9OX7ZukT3cbOpI-gYB6bl6xExR_klitnIex5D_nJxn65u8Y";
+                const webhookUrl = "https://discord.com/api/webhooks/1351285310415437884/Aq77Efe6ZwnD0mKaNyJhf9OX7ZukT3cbOpI-gYB6bl6xExR_klitnIex5D_nJxn65u8Y"; // Replace with your Discord Webhook URL
 
                 const payload = {
                     embeds: [{
@@ -111,7 +110,8 @@
                 alert("Your report has been submitted successfully.");
                 setTimeout(() => {
                     window.location.href = "https://sprdzy.com/";
-                }, 3000);
+                }, 2000);
+
             } catch (error) {
                 alert("Error submitting the report. Please try again later.");
                 console.error("Error:", error);
