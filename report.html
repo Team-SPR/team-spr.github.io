@@ -1,3 +1,5 @@
+/// coded by big brain beau x
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +9,7 @@
     <link rel="icon" href="https://team-spr.github.io/files/sprdzy.png" type="image/png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
+    <style> 
         @keyframes gradientBackground {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -67,8 +69,8 @@
             const file = document.getElementById("image").files[0];
             const formData = new FormData();
             formData.append("file", file);
-            formData.append("upload_preset", "BeauOne"); // Replace with your Upload Preset
-            formData.append("cloud_name", "dsyjeylzd"); // Replace with your Cloud Name
+            formData.append("upload_preset", "BeauOne"); 
+            formData.append("cloud_name", "dsyjeylzd");
 
             try {
                 const cloudinaryResponse = await fetch("https://api.cloudinary.com/v1_1/dsyjeylzd/image/upload", { // Replace with your Cloud Name
@@ -83,7 +85,7 @@
                 const cloudinaryResult = await cloudinaryResponse.json();
                 const imageUrl = cloudinaryResult.secure_url;
 
-                const webhookUrl = "https://discord.com/api/webhooks/1351285310415437884/Aq77Efe6ZwnD0mKaNyJhf9OX7ZukT3cbOpI-gYB6bl6xExR_klitnIex5D_nJxn65u8Y"; // Replace with your Discord Webhook URL
+                const webhookUrl = "https://discord.com/api/webhooks/1351285310415437884/Aq77Efe6ZwnD0mKaNyJhf9OX7ZukT3cbOpI-gYB6bl6xExR_klitnIex5D_nJxn65u8Y"; 
 
                 const payload = {
                     embeds: [{
