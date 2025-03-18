@@ -72,7 +72,7 @@
             formData.append("ingoodfaith", document.getElementById("ingoodfaith").value.trim());
 
             try {
-                const uploadResponse = await fetch("/upload-image", {
+                const uploadResponse = await fetch("/cdn", {
                     method: "POST",
                     body: formData,
                 });
