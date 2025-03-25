@@ -1,0 +1,5 @@
+Contact: mailto:secure@sprdzy.com
+Expires: 2026-01-01T00:00:00.000Z
+Preferred-Languages: en, de, nl
+Canonical: https://sprdzy.com/.well-known/security.txt
+Hiring: mailto:careers@sprdzy.com
